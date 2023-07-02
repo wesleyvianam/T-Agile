@@ -10,7 +10,7 @@ class TaskRequest extends FormRequest
     {
         return [
             'task' => ['required', 'string'],
-            'category' => ['required', 'string']
+            'category' => ['required', 'string'],
         ];
     }
 }

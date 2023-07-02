@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('task');
             $table->string('category');
+            $table->enum('status', ['complete', 'incomplete']);
             $table->timestamps();
         });
     }
