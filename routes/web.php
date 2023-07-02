@@ -1,5 +1,6 @@
 <?php
 
+use App\Web\Task\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::namespace('\App\Web\Task\Controllers')->group(function () {
+    Route::resource('/task', TaskController::class);
 });
