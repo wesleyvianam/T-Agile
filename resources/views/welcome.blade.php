@@ -9,7 +9,7 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
-
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 
@@ -42,16 +42,43 @@
                     </div>
                 </form>
 
-                <ul class="list-group">
+                {{--INCOMPLETE--}}
+                <ul class="list-group mb-3">
                     <li class="list-group-item d-flex justify-content-between">
                         <strong>Title</strong>
                         <strong>Category</strong>
                     </li>
                     @foreach($tasks as $task)
-                        <li class="list-group-item d-flex justify-content-between" style="text-decoration: {{ $task->status }}">
-                            <span>{{ $task->task }}</span>
-                            <span>{{ $task->category }}</span>
-                        </li>
+                        @if($task->status == "none")
+                            <li class="list-group-item d-flex justify-content-between px-3" style="text-decoration: {{ $task->status }}">
+                                <span>{{ $task->task }}</span>
+                                <span>{{ $task->category }}</span>
+                                <div>
+                                    <a href="#" class="text-decoration-none btn btn-sm btn-white border" title="Complete">
+                                        <i class="bi bi-check text-muted"></i>
+                                    </a>
+                                    <button class="btn btn-sm btn-white" title="Delete"><i class="bi bi-trash-fill text-danger"></i></button>
+                                </div>
+                            </li>
+                        @endif
+                    @endforeach
+                </ul>
+
+                {{--COMPLETE--}}
+                <ul class="list-group">
+                    @foreach($tasks as $task)
+                        @if($task->status != "none")
+                            <li class="list-group-item d-flex justify-content-between px-3 text-black-50">
+                                <span style="text-decoration: {{ $task->status }}">{{ $task->task }}</span>
+                                <span style="text-decoration: {{ $task->status }}">{{ $task->category }}</span>
+                                <div>
+                                    <a href="#" class="text-decoration-none btn btn-sm btn-white border" title="Rollback">
+                                        <i class="bi bi-arrow-counterclockwise"></i>
+                                    </a>
+                                    <button class="btn btn-sm btn-white" title="Delete"><i class="bi bi-trash-fill text-danger"></i></button>
+                                </div>
+                            </li>
+                        @endif
                     @endforeach
                 </ul>
 
