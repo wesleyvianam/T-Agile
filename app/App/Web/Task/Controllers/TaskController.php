@@ -4,9 +4,13 @@ namespace App\Web\Task\Controllers;
 
 use App\Core\Http\Controllers\Controller;
 use App\Web\Task\Requests\TaskRequest;
+use App\Web\Task\Requests\UpdateRequest;
 use Domain\Task\Action\CreateTaskAction;
+use Domain\Task\Action\UpdateTaskAction;
 use Domain\Task\DataTransferObjects\TaskData;
+use Domain\Task\DataTransferObjects\TaskUpdateData;
 use Domain\Task\Models\Task;
+use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
@@ -26,6 +30,21 @@ class TaskController extends Controller
         $response = $action($data);
 
         return back()->with(['success' => 'Tarefa criada com sucesso']);
+    }
+
+    public function update(Task $task, UpdateRequest $request, UpdateTaskAction $action)
+    {
+        $dataUpdate = new TaskUpdateData($request->get('status'));
+        $response = $action($task, $dataUpdate);
+
+        return to_route('task.index');
+    }
+
+    public function destroy(Task $task)
+    {
+        $task->delete();
+
+        return to_route('task.index');
     }
 
 }
