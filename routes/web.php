@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', function () {
+    redirect('/task');
+});
+
 Route::namespace('\App\Web\Task\Controllers')->group(function () {
     Route::resource('/task', TaskController::class);
 });

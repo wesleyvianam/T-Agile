@@ -18,7 +18,7 @@ class TaskController extends Controller
     {
         $tasks = app(Task::class)->get();
 
-        return view('welcome', compact('tasks'));
+        return view('Task.index', compact('tasks'));
     }
 
     public function store(TaskRequest $request, CreateTaskAction $action)
