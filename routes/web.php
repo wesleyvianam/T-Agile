@@ -1,18 +1,8 @@
 <?php
 
+use App\Web\Project\Controllers\ProjectsController;
 use App\Web\Task\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
 Route::get('/', function () {
     redirect('/task');
@@ -20,4 +10,8 @@ Route::get('/', function () {
 
 Route::namespace('\App\Web\Task\Controllers')->group(function () {
     Route::resource('/task', TaskController::class);
+});
+
+Route::namespace('\App\Web\Project\Controllers')->group(function () {
+    Route::resource('/project', ProjectsController::class);
 });

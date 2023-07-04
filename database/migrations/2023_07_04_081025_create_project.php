@@ -11,12 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tasks', function (Blueprint $table) {
+        Schema::create('projects', function (Blueprint $table) {
             $table->id();
-            $table->string('task');
-            $table->string('category');
-            $table->enum('status', ['complete', 'incomplete']);
-            $table->unsignedBigInteger('project_id');
+            $table->string('title');
+            $table->text('description');
+            $table->enum('type', ['kanban', 'list']);
 
             $table->timestamps();
         });
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('projects');
+        Schema::dropIfExists('project');
     }
 };
