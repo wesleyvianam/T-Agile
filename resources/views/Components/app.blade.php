@@ -27,7 +27,7 @@
             </ul>
         @endif
 
-        <div>
+        <div style="width: 900px;display: flex">
             @yield('content')
         </div>
     </div>

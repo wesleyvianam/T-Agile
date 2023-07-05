@@ -10,11 +10,11 @@
 
     <ul class="nav nav-pills flex-column mb-auto">
         <li class="nav-item">
-            <a href="{{ to_route('project.index') }}" class="nav-link {{ $active == 'home' ? 'active' : 'link-dark'}}">Home</a>
+            <a href="{{ route('project.index') }}" class="nav-link {{ $active == 'home' ? 'active' : 'link-dark'}}">Home</a>
         </li>
 
         <li class="nav-item">
-            <a href="#" class="nav-link {{ $active == 'task' ? 'active' : 'link-dark'}}">Task</a>
+            <a href="{{ route('task.index') }}" class="nav-link {{ $active == 'task' ? 'active' : 'link-dark'}}">Task</a>
         </li>
 
         <li class="nav-item">

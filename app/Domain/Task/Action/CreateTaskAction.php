@@ -12,7 +12,8 @@ final class CreateTaskAction
         return Task::create([
             'task' => $taskData->task,
             'category' => $taskData->category,
-            'status' => $taskData->status
+            'project_id' => $taskData->projectId,
+            'status' => $taskData->status,
         ]);
     }
 }

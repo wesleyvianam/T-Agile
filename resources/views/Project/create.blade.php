@@ -20,7 +20,7 @@
 
             <div class="row">
                 <div class="col" style="width: 100%">
-                    <textarea class="form-control" name="category" id="category" placeholder=""></textarea>
+                    <textarea class="form-control" name="description" id="description" placeholder=""></textarea>
                 </div>
             </div>
 

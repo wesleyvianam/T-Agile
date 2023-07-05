@@ -10,6 +10,8 @@ Route::get('/', function () {
 
 Route::namespace('\App\Web\Task\Controllers')->group(function () {
     Route::resource('/task', TaskController::class);
+
+    Route::get('/task/create/{id}', [TaskController::class, 'create'])->name('task.create');
 });
 
 Route::namespace('\App\Web\Project\Controllers')->group(function () {

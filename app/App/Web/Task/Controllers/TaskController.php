@@ -5,6 +5,7 @@ namespace App\Web\Task\Controllers;
 use App\Core\Http\Controllers\Controller;
 use App\Web\Task\Requests\TaskRequest;
 use App\Web\Task\Requests\UpdateRequest;
+use Domain\Project\Models\Project;
 use Domain\Task\Action\CreateTaskAction;
 use Domain\Task\Action\UpdateTaskAction;
 use Domain\Task\DataTransferObjects\TaskData;
@@ -21,12 +22,18 @@ class TaskController extends Controller
         return view('Task.index', compact('tasks'));
     }
 
+    public function create(int $project)
+    {
+        return view('Task.create')->with('project', $project);
+    }
+
     public function store(TaskRequest $request, CreateTaskAction $action)
     {
         $task = $request->get('task');
         $category = $request->get('category');
+        $projectId = $request->get('projectId');
 
-        $data = new TaskData($task, $category);
+        $data = new TaskData($task, $category, $projectId);
         $response = $action($data);
 
         return back()->with(['success' => 'Tarefa criada com sucesso']);

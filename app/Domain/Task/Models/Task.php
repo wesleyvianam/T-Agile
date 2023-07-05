@@ -10,7 +10,7 @@ class Task extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['task', 'category', 'status'];
+    protected $fillable = ['task', 'category', 'status', 'project_id'];
 
     public function getStatusAttribute($value)
     {

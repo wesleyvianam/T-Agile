@@ -9,12 +9,17 @@
             <a href="{{ route('project.create') }}" class="btn btn-primary">New</a>
         </div>
 
-        <ul>
+        <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-between">
+                <span style="width: 300px">Title</span>
+                <span>Type</span>
+                <span>Action</span>
+            </li>
             @foreach($projects as $project)
-                <li class="d-flex justify-content-between">
+                <li class="list-group-item d-flex justify-content-between">
                     <span style="width: 300px">{{ $project->title }}</span>
                     <span>{{ $project->type }}</span>
-                    <a href="#">Entrar</a>
+                    <a href="{{ route("project.show", $project->id) }}">Entrar</a>
                 </li>
             @endforeach
         </ul>
