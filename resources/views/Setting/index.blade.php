@@ -10,7 +10,7 @@
 
     <div style="width: 600px">
         <div class="card mb-3 border rounded shadow-sm">
-            <div class="px-3 py-2 border-bottom d-flex justify-content-between rounded-top align-items-center bg-danger mb-3">
+            <div class="px-3 py-2 border-bottom d-flex justify-content-between rounded-top align-items-center bg-danger">
                 <h1 class="h6 text-white">Settings</h1>
 
                 <a href="{{ route('project.index') }}" class="btn btn-sm border text-white d-flex align-items-center">
@@ -18,12 +18,12 @@
                 </a>
             </div>
 
-            <ul class="list-group">
-                <li class="list-group-item">
+            <ul class="list-group p-3">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
                     Categories
-                </li>
-                <li class="list-group-item">
-                    Categories
+                    <a href="#" class="btn btn-sm btn-secondary">
+                        <i class="bi bi-gear-fill"></i>
+                    </a>
                 </li>
             </ul>
         </div>
