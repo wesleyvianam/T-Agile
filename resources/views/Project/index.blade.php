@@ -51,23 +51,31 @@
             </div>
         </div>
 
-        <ul class="list-group">
-            <li class="list-group-item d-flex justify-content-between">
-                <span style="width: 300px">Title</span>
-                <span>Type</span>
-                <span>Action</span>
-            </li>
+        <div class="row">
             @foreach($projects as $project)
-                <li class="list-group-item d-flex justify-content-between">
-                    <span style="width: 300px">{{ $project->title }}</span>
-                    <div>
-                        <span class="badge text-bg-success">{{ $project->type }}</span>
-                    </div>
-                    <a href="{{ route("project.show", $project->id) }}" class="btn btn-sm btn-secondary">
-                        Entrar
-                    </a>
-                </li>
+                <div class="col-4 border">
+                    {{ $project->title }}
+                </div>
             @endforeach
-        </ul>
+        </div>
+
+{{--        <ul class="list-group">--}}
+{{--            <li class="list-group-item d-flex justify-content-between">--}}
+{{--                <span style="width: 300px">Title</span>--}}
+{{--                <span>Type</span>--}}
+{{--                <span>Action</span>--}}
+{{--            </li>--}}
+{{--            @foreach($projects as $project)--}}
+{{--                <li class="list-group-item d-flex justify-content-between">--}}
+{{--                    <span style="width: 300px">{{ $project->title }}</span>--}}
+{{--                    <div>--}}
+{{--                        <span class="badge text-bg-success">{{ $project->type }}</span>--}}
+{{--                    </div>--}}
+{{--                    <a href="{{ route("project.show", $project->id) }}" class="btn btn-sm btn-secondary">--}}
+{{--                        Entrar--}}
+{{--                    </a>--}}
+{{--                </li>--}}
+{{--            @endforeach--}}
+{{--        </ul>--}}
     </div>
 @endsection
