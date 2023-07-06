@@ -5,8 +5,11 @@ namespace App\Web\Project\Controllers;
 use App\Core\Http\Controllers\Controller;
 use App\Web\Project\Requests\ProjectsRequest;
 use Domain\Project\Actions\CreateActionProject;
+use Domain\Project\Actions\UpdateActionProject;
 use Domain\Project\DataTransferObjects\ProjectCreateData;
+use Domain\Project\DataTransferObjects\ProjectUpdateData;
 use Domain\Project\Models\Project;
+use Illuminate\Http\Client\Request;
 
 class ProjectsController extends Controller
 {
@@ -17,9 +20,9 @@ class ProjectsController extends Controller
         return view('Project.index', compact('projects'));
     }
 
-    public function create()
+    public function edit(Project $project)
     {
-        return view('Project.create');
+        return view('Project.edit')->with('project', $project);
     }
 
     public function store(ProjectsRequest $request, CreateActionProject $crateActionProject)
@@ -31,9 +34,7 @@ class ProjectsController extends Controller
         $data = new ProjectCreateData($title, $type, $description);
         $response = $crateActionProject($data);
 
-        if ($response) {
-            return to_route('project.index');
-        }
+        return to_route('project.index');
     }
 
     public function show(Project $project)
@@ -43,8 +44,16 @@ class ProjectsController extends Controller
         return view('Project.show')->with('project', $project)->with('tasks', $tasks);
     }
 
-    public function update(Project $project)
+    public function update(Project $project, ProjectsRequest $request, UpdateActionProject $updateAction)
     {
+        $title = $request->get('title');
+        $type = $request->get('type');
+        $description = $request->get('description') ?: "";
+
+        $dataUpdate = new ProjectUpdateData($title, $type, $description);
+        $res = $updateAction($project, $dataUpdate);
+
+        return to_route('project.show', $project->id);
     }
 
     public function destroy(Project $project)

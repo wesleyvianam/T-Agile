@@ -11,10 +11,35 @@
             <div class="px-3 py-2 border-bottom d-flex justify-content-between rounded-top align-items-center bg-danger">
                 <h1 class="h6 text-white">{{ $project->title }}</h1>
 
-                <a href="{{ route('project.index') }}" class="btn btn-sm border text-white">
-                    <i class="bi bi-caret-left-fill pe-1"></i>
-                    back
-                </a>
+                <div class="d-flex">
+                    <a href="{{ route('project.index') }}" class="btn btn-sm border text-white me-2 d-flex align-items-center">
+                        <i class="bi bi-chevron-left"></i>
+                    </a>
+                    <div class="dropdown border rounded">
+                        <button class="btn btn-sm text-white btn-white" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-gear"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li>
+                                <a href="{{ route('project.edit', $project->id) }}" class="dropdown-item text-decoration-none btn btn-sm btn-white" title="Edit">
+                                    <i class="bi bi-pencil-square me-3"></i>
+                                    Edit
+                                </a>
+                            </li>
+                            <li>
+                                <form method="POST" action="{{ route('project.destroy', $project->id) }}" class="dropdown-item text-decoration-none btn btn-sm btn-white" title="Delete">
+                                    @csrf
+                                    @Method('DELETE')
+
+                                    <button type="submit" class="btn btn-sm btn-white text-white p-0" title="Delete">
+                                        <i class="bi bi-trash-fill me-3"></i>
+                                        Delete
+                                    </button>
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
 
             <div class="p-3">
@@ -52,7 +77,9 @@
                 @if($task->status == "none")
                     <li class="list-group-item d-flex justify-content-between align-items-center px-3">
                         <span style="width: 300px">{{ $task->task }}</span>
-                        <span>{{ $task->category }}</span>
+                        <div>
+                            <span class="badge text-bg-success">{{ $task->category }}</span>
+                        </div>
                         <div>
                             <form method="POST" action="{{ route('task.update', $task->id) }}" class="text-decoration-none btn btn-sm btn-white border" title="Complete">
                                 @csrf
@@ -84,7 +111,9 @@
                 @if($task->status != "none")
                     <li class="list-group-item d-flex justify-content-between align-items-center px-3 text-black-50">
                         <span style="width: 300px; text-decoration: {{ $task->status }}">{{ $task->task }}</span>
-                        <span style="text-decoration: {{ $task->status }}">{{ $task->category }}</span>
+                        <div>
+                            <span class="badge text-bg-secondary" style="text-decoration: {{ $task->status }}">{{ $task->category }}
+                        </div>
                         <div>
                             <form method="POST" action="{{ route('task.update', $task->id) }}" class="text-decoration-none btn btn-sm btn-white border" title="Rollback">
                                 @csrf
