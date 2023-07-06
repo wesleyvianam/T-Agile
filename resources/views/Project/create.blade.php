@@ -2,7 +2,7 @@
 
 @section('content')
 
-    @include('Components._sidebar', ['active' => 'home'])
+    @include('Components._sidebar', ['active' => 'project'])
 
     <div style="width: 600px">
         <form method="POST" action="{{ url('/project') }}">

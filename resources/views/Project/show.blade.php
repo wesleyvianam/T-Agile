@@ -4,13 +4,14 @@
 
 @section('content')
 
-    @include('Components._sidebar', ['active' => 'home'])
+    @include('Components._sidebar', ['active' => 'project'])
+
     <div style="width: 600px">
         <div class="card mb-3 border rounded shadow-sm">
-            <div class="px-3 py-2 border-bottom d-flex justify-content-between align-items-center bg-primary-subtle">
-                <h1 class="h6">{{ $project->title }}</h1>
+            <div class="px-3 py-2 border-bottom d-flex justify-content-between rounded-top align-items-center bg-danger">
+                <h1 class="h6 text-white">{{ $project->title }}</h1>
 
-                <a href="{{ route('project.index') }}" class="btn btn-sm bg-white border text-secondary">
+                <a href="{{ route('project.index') }}" class="btn btn-sm border text-white">
                     <i class="bi bi-caret-left-fill pe-1"></i>
                     back
                 </a>
@@ -27,14 +28,14 @@
                         </div>
 
                         <div class="pe-3">
-                            <select class="form-select form-select-sm" type="text" name="category" id="category" placeholder="Category">
+                            <select class="form-select form-select-sm" name="category" id="category">
                                 <option value="Estudo">Estudo</option>
                                 <option value="Trabalho">Trabalho</option>
                                 <option value="Casa">Casa</option>
                             </select>
                         </div>
 
-                        <button class="btn btn-sm btn-primary px-3">Save</button>
+                        <button class="btn btn-sm btn-danger px-3">Save</button>
                     </div>
                 </form>
             </div>
@@ -68,7 +69,7 @@
                                 <input type="hidden" name="status" value="incomplete" />
 
                                 <button type="submit" class="btn btn-sm btn-white p-0" title="Delete">
-                                    <i class="bi bi-trash-fill text-danger"></i>
+                                    <i class="bi bi-trash-fill text-secondary"></i>
                                 </button>
                             </form>
                         </div>
@@ -101,7 +102,7 @@
                                 <input type="hidden" name="status" value="incomplete" />
 
                                 <button type="submit" class="btn btn-sm btn-white p-0" title="Delete">
-                                    <i class="bi bi-trash-fill text-danger"></i>
+                                    <i class="bi bi-trash-fill text-secondary"></i>
                                 </button>
                             </form>
                         </div>

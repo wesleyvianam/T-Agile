@@ -11,11 +11,17 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
+    <style>
+        .active {
+            background-color: #dc3545 !important;
+        }
+    </style>
 </head>
 <body class="content" style="padding: 5rem;">
     @if(session('success'))
         <div class="d-flex justify-content-center">
-            <div class="alert alert-success alert-dismissible fade show" role="alert" style="width: 900px">
+            <div class="alert alert-success alert-dismissible fade show" role="alert" style="width: 850px">
                 {{ session('success') }}
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
@@ -31,7 +37,7 @@
     @endif
 
     <div class="d-flex justify-content-center">
-        <div style="width: 900px;display: flex">
+        <div style="width: 850px;display: flex">
             @yield('content')
         </div>
     </div>
