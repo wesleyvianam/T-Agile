@@ -38,7 +38,9 @@ class ProjectsController extends Controller
 
     public function show(Project $project)
     {
-        return view('Project.show')->with('project', $project);
+        $tasks = $project->tasks()->get();
+
+        return view('Project.show')->with('project', $project)->with('tasks', $tasks);
     }
 
     public function update(Project $project)
