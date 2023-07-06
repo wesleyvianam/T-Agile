@@ -15,13 +15,6 @@ use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
-    public function index()
-    {
-        $tasks = app(Task::class)->get();
-
-        return view('Task.index', compact('tasks'));
-    }
-
     public function create(int $project)
     {
         return view('Task.create')->with('project', $project);
@@ -36,7 +29,7 @@ class TaskController extends Controller
         $data = new TaskData($task, $category, $projectId);
         $response = $action($data);
 
-        return back()->with(['success' => 'Tarefa criada com sucesso']);
+        return to_route('project.show', $projectId)->with(['success' => 'Tarefa criada com sucesso']);
     }
 
     public function update(Task $task, UpdateRequest $request, UpdateTaskAction $action)
@@ -44,14 +37,14 @@ class TaskController extends Controller
         $dataUpdate = new TaskUpdateData($request->get('status'));
         $response = $action($task, $dataUpdate);
 
-        return to_route('task.index');
+        return to_route('project.show', $task->project_id);
     }
 
     public function destroy(Task $task)
     {
         $task->delete();
 
-        return to_route('task.index');
+        return to_route('project.show', $task->project_id);
     }
 
 }
