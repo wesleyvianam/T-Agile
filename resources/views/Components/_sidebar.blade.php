@@ -17,7 +17,7 @@
         </li>
 
         <li class="nav-item">
-            <a href="#" class="nav-link {{ $active == 'config' ? 'active' : 'link-dark'}}">
+            <a href="{{ route('setting.index') }}" class="nav-link {{ $active == 'settings' ? 'active' : 'link-dark'}}">
                 <i class="bi bi-gear pe-3"></i>
                 Settings
             </a>

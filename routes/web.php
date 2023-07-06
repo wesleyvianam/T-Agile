@@ -1,6 +1,7 @@
 <?php
 
 use App\Web\Project\Controllers\ProjectsController;
+use App\Web\Setting\Controllers\SettingsController;
 use App\Web\Task\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,4 +17,8 @@ Route::namespace('\App\Web\Task\Controllers')->group(function () {
 
 Route::namespace('\App\Web\Project\Controllers')->group(function () {
     Route::resource('/project', ProjectsController::class);
+});
+
+Route::namespace('\App\Web\Setting\Controllers')->group(function () {
+    Route::get('/setting', [SettingsController::class, 'index'])->name('setting.index');
 });
