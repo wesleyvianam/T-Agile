@@ -21,7 +21,7 @@
             <ul class="list-group p-3">
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     Categories
-                    <a href="#" class="btn btn-sm btn-secondary">
+                    <a href="{{ route('category.index') }}" class="btn btn-sm btn-secondary">
                         <i class="bi bi-gear-fill"></i>
                     </a>
                 </li>
