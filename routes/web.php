@@ -1,5 +1,6 @@
 <?php
 
+use App\Web\CategoriesController\Controllers\CategoriesController;
 use App\Web\Project\Controllers\ProjectsController;
 use App\Web\Setting\Controllers\SettingsController;
 use App\Web\Task\Controllers\TaskController;
@@ -21,4 +22,8 @@ Route::namespace('\App\Web\Project\Controllers')->group(function () {
 
 Route::namespace('\App\Web\Setting\Controllers')->group(function () {
     Route::get('/setting', [SettingsController::class, 'index'])->name('setting.index');
+});
+
+Route::namespace('\App\Web\CategoriesController\Controllers')->group(function () {
+    Route::resource('/category', CategoriesController::class)->except('show');
 });
