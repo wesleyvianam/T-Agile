@@ -54,9 +54,9 @@
 
                         <div class="pe-3">
                             <select class="form-select form-select-sm" name="category" id="category">
-                                <option value="Estudo">Estudo</option>
-                                <option value="Trabalho">Trabalho</option>
-                                <option value="Casa">Casa</option>
+                                @foreach($categories as $category)
+                                    <option value="{{ $category->title }}">{{ $category->title }}</option>
+                                @endforeach
                             </select>
                         </div>
 
