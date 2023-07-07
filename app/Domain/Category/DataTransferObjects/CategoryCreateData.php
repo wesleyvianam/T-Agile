@@ -1,8 +1,14 @@
 <?php
 
-namespace Domain\Category;
+namespace Domain\Category\DataTransferObjects;
 
-class CategoryCreateData
+use Spatie\LaravelData\Data;
+
+class CategoryCreateData extends Data
 {
-
+    public function __construct(
+        public readonly string $title,
+        public readonly string $description = "",
+    ) {
+    }
 }
