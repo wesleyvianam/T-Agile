@@ -4,6 +4,7 @@ namespace App\Web\Project\Controllers;
 
 use App\Core\Http\Controllers\Controller;
 use App\Web\Project\Requests\ProjectsRequest;
+use Domain\Category\Models\Category;
 use Domain\Project\Actions\CreateActionProject;
 use Domain\Project\Actions\UpdateActionProject;
 use Domain\Project\DataTransferObjects\ProjectCreateData;
@@ -41,7 +42,9 @@ class ProjectsController extends Controller
     {
         $tasks = $project->tasks()->get();
 
-        return view('Project.show')->with('project', $project)->with('tasks', $tasks);
+        $categories = Category::all();
+
+        return view('Project.show', compact('project', 'tasks', 'categories'));
     }
 
     public function update(Project $project, ProjectsRequest $request, UpdateActionProject $updateAction)
