@@ -1,29 +1,31 @@
 <?php
 
-use App\Web\CategoriesController\Controllers\CategoriesController;
-use App\Web\Project\Controllers\ProjectsController;
-use App\Web\Setting\Controllers\SettingsController;
-use App\Web\Task\Controllers\TaskController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "web" middleware group. Make something great!
+|
+*/
+
 Route::get('/', function () {
-    redirect('/task');
+    return view('welcome');
 });
 
-Route::namespace('\App\Web\Task\Controllers')->group(function () {
-    Route::resource('/task', TaskController::class);
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
-    Route::get('/task/create/{id}', [TaskController::class, 'create'])->name('task.create');
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::namespace('\App\Web\Project\Controllers')->group(function () {
-    Route::resource('/project', ProjectsController::class);
-});
-
-Route::namespace('\App\Web\Setting\Controllers')->group(function () {
-    Route::get('/setting', [SettingsController::class, 'index'])->name('setting.index');
-});
-
-Route::namespace('\App\Web\CategoriesController\Controllers')->group(function () {
-    Route::resource('/category', CategoriesController::class)->except('show');
-});
+require __DIR__.'/auth.php';
