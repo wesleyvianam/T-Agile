@@ -36,13 +36,17 @@ class ProjectsController extends Controller
         return to_route('project.index');
     }
 
-    public function update()
+    public function update(Project $project)
     {
+
+
         return to_route('project.index');
     }
 
-    public function destroy()
+    public function destroy(Project $project)
     {
-        return to_route('project.index');
+        $project->delete();
+
+        return to_route('project.index')->with(['success' => "Projeto $project->title deletado com sucesso!"]);
     }
 }
