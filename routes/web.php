@@ -1,7 +1,11 @@
 <?php
 
+use App\Http\Controllers\Category\Controllers\CategoriesController;
+use App\Http\Controllers\Epic\Controllers\EpicsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Project\Controllers\ProjectsController;
+use App\Http\Controllers\Settings\Controllers\SettingsController;
+use App\Http\Controllers\Task\Controllers\TasksController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,6 +33,14 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::resource('/project', ProjectsController::class);
+
+    Route::resource('/task', TasksController::class);
+
+    Route::resource('/setting', SettingsController::class);
+
+    Route::resource('/epic', EpicsController::class);
+
+    Route::resource('/category', CategoriesController::class);
 });
 
 require __DIR__.'/auth.php';
