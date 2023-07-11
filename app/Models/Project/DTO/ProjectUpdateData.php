@@ -2,7 +2,12 @@
 
 namespace App\Models\Project\DTO;
 
-class ProjectUpdateData
-{
+use Spatie\LaravelData\Data;
 
+class ProjectUpdateData extends Data
+{
+    public function __construct(
+        public readonly string $title,
+    ){
+    }
 }
