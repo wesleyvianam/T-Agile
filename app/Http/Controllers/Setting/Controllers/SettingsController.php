@@ -1,32 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\Settings\Controllers;
+namespace App\Http\Controllers\Setting\Controllers;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class SettingsController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-    }
+        $projectId = $request->query('id');
 
-    public function create()
-    {
-    }
-
-    public function store()
-    {
-    }
-
-    public function edit()
-    {
-    }
-
-    public function update()
-    {
-    }
-
-    public function destroy()
-    {
+        return view('setting.index')->with('projectId', $projectId);
     }
 }
