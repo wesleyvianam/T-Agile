@@ -3,7 +3,7 @@
 @section('title') Create Project @endsection
 
 @section('content')
-    @include('components._sidebar', ['active' => 'backlog', 'project' => $projectId])
+    @include('components._sidebar', ['active' => 'epics', 'project' => $projectId])
 
     <div class="ms-3 w-2/3 border p-3">
         <div class="flex justify-between">
