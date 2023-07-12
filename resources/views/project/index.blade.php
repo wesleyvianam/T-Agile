@@ -5,7 +5,7 @@
 @section('content')
     <div class="">
         <div class="flex justify-between">
-            <h1>Project</h1>
+            <h1>Epic</h1>
             <a href="{{ route('project.create') }}" class="border p-2">New Project</a>
         </div>
 
@@ -14,7 +14,7 @@
                 <li class="border p-2 rounded flex justify-between">
                     <div>
                         <span>{{ $project->user_id }}</span>
-                        <span>{{ $project->title }}</span>
+                        <a href="{{ route('project.show', $project->id) }}">{{ $project->title }}</a>
                     </div>
 
                     <div class="flex">
