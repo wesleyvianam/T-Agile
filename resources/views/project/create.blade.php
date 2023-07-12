@@ -3,7 +3,7 @@
 @section('title') Create Project @endsection
 
 @section('content')
-    <div>
+    <div class="w-full border p-3">
         <div class="flex justify-between">
             <h1>New Project</h1>
             <a href="{{ route('project.index') }}" class="border p-2">voltar</a>
