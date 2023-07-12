@@ -26,7 +26,9 @@
     @endif
 
     <div style="width: 900px">
-        @yield('content')
+        <div class="flex">
+            @yield('content')
+        </div>
     </div>
 </body>
 </html>
