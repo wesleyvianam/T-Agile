@@ -24,7 +24,7 @@
         </li>
 
         <li class="py-1">
-            <a href="{{ route('setting.index') }}" class="{{ $active == 'settings' ? 'px-3 border-s-4 border-indigo-500' : 'px-4 '}}">
+            <a href="{{ route('setting.index', ['id' => $projectId]) }}" class="{{ $active == 'settings' ? 'px-3 border-s-4 border-indigo-500' : 'px-4 '}}">
                 <i class=""></i>
                 Settings
             </a>
