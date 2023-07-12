@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Epic\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Epic\Requests\RequestEpic;
+use App\Models\Epic\Actions\CreateEpicAction;
+use App\Models\Epic\DTO\EpicCreateData;
 use App\Models\Epic\Models\Epic;
 use App\Models\Project\Models\Project;
 use Illuminate\Http\Request;
@@ -25,8 +28,16 @@ class EpicsController extends Controller
         return view('epic.create', compact('projectId'));
     }
 
-    public function store()
+    public function store(RequestEpic $request, CreateEpicAction $action)
     {
+        $title = $request->get('title');
+        $projectId = $request->get('projectId');
+
+        $data = new EpicCreateData($title, $projectId);
+
+        $action($data);
+
+        return to_route('epic.index')->with('id', $projectId);
     }
 
     public function edit()
