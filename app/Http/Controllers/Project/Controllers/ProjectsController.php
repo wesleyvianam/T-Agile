@@ -39,6 +39,11 @@ class ProjectsController extends Controller
         return to_route('project.index');
     }
 
+    public function show(Project $project)
+    {
+        return view('project.show')->with('project', $project);
+    }
+
     public function edit(Project $project)
     {
         return view('project.edit')->with('project', $project);
