@@ -9,5 +9,5 @@ class Epic extends Model
 {
     use HasFactory;
 
-    protected $fillable = [];
+    protected $fillable = ['title', 'project_id'];
 }
