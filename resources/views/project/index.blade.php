@@ -3,9 +3,9 @@
 @section('title') Project @endsection
 
 @section('content')
-    <div class="">
+    <div class="w-full border p-3">
         <div class="flex justify-between">
-            <h1>Epic</h1>
+            <h1>Workspaces</h1>
             <a href="{{ route('project.create') }}" class="border p-2">New Project</a>
         </div>
 
