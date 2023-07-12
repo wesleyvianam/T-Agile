@@ -8,6 +8,6 @@ class RequestMember extends FormRequest
 {
     public function rules(): array
     {
-        return [];
+        return ['title' => ['required', 'string']];
     }
 }
