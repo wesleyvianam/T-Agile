@@ -4,7 +4,7 @@ use App\Http\Controllers\Category\Controllers\CategoriesController;
 use App\Http\Controllers\Epic\Controllers\EpicsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Project\Controllers\ProjectsController;
-use App\Http\Controllers\Settings\Controllers\SettingsController;
+use App\Http\Controllers\Setting\Controllers\SettingsController;
 use App\Http\Controllers\Task\Controllers\TasksController;
 use Illuminate\Support\Facades\Route;
 
@@ -36,9 +36,9 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('/task', TasksController::class);
 
-    Route::resource('/setting', SettingsController::class);
-
     Route::resource('/epic', EpicsController::class);
+
+    Route::resource('/setting', SettingsController::class)->only('index');
 
     Route::resource('/category', CategoriesController::class);
 });
