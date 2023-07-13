@@ -3,6 +3,7 @@
 @section('title') Categories @endsection
 
 @section('content')
+
     @include('components._sidebar', ['active' => 'settings', 'projectId' => $projectId])
 
     <div class="ms-3 w-2/3 border p-3">
