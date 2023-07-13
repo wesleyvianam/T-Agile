@@ -15,6 +15,9 @@ class EpicsController extends Controller
     public function index(Request $request)
     {
         $projectId = $request->query('id');
+        if (empty($projectId)) {
+            $projectId = $request->session()->get('id');
+        }
 
         $epics = Epic::where('project_id', $projectId)->get();
 
@@ -36,6 +39,8 @@ class EpicsController extends Controller
         $data = new EpicCreateData($title, $projectId);
 
         $action($data);
+
+        $request->session()->flash('id', $projectId);
 
         return to_route('epic.index')->with('id', $projectId);
     }
