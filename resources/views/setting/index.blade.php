@@ -3,7 +3,8 @@
 @section('title') Settings @endsection
 
 @section('content')
-    @include('components._sidebar', ['active' => 'settings', 'projectId' => $projectId])
+
+    @include('components._sidebar', ['projectId' => $projectId, 'active' => 'settings'])
 
     <div class="ms-3 w-2/3 border p-3">
         <div class="flex justify-between">
@@ -15,7 +16,7 @@
             <li class="border p-2 rounded flex justify-between">
                 <span>Categorias</span>
 
-                <a href="{{ route('category.index', $projectId) }}" class="pe-3">
+                <a href="{{ route('category.index', ['id' => $projectId]) }}" class="pe-3">
                     <i class="bi bi-pencil-square text-gray-500 hover:text-gray-800"></i>
                 </a>
             </li>
