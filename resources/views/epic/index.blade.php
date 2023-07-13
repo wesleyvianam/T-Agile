@@ -15,9 +15,7 @@
             @foreach($epics as $epic)
                 <li class="border p-2 rounded flex justify-between">
                     <div>
-                        <span>
-                            {{ $epic->project_id }}
-                        </span>
+                        <span>{{ $epic->project_id }}</span>
 
                         <a href="{{ route('epic.show', $projectId) }}">{{ $epic->title }}</a>
                     </div>
