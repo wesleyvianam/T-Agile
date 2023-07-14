@@ -8,7 +8,7 @@
     <div class="ms-3 w-2/3 border p-3">
         <div class="flex justify-between">
             <h1>Epics</h1>
-            <a href="{{ route('epic.create', ['id' => $projectId]) }}" class="border p-2">New Epic</a>
+            <a href="{{ route('epic.create') }}" class="border p-2">New Epic</a>
         </div>
 
         <ul class="mt-3">
