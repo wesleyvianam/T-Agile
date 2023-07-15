@@ -12,7 +12,9 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="flex justify-center" style="padding: 5rem;">
+<body class="flex flex-col items-center">
+    @include('components.navbar')
+
     @if(session('success'))
         <div>{{ session('success') }}</div>
     @endif
@@ -25,7 +27,7 @@
         </ul>
     @endif
 
-    <div style="width: 1200px">
+    <div class="w-full px-80">
         <div class="flex">
             @yield('content')
         </div>
