@@ -25,7 +25,7 @@
         </ul>
     @endif
 
-    <div style="width: 900px">
+    <div style="width: 1200px">
         <div class="flex">
             @yield('content')
         </div>
