@@ -10,6 +10,7 @@ use App\Models\Project\Actions\UpdateProjectAction;
 use App\Models\Project\DTO\ProjectCreateData;
 use App\Models\Project\DTO\ProjectUpdateData;
 use App\Models\Project\Models\Project;
+use Illuminate\Http\Request;
 
 class ProjectsController extends Controller
 {
@@ -39,8 +40,10 @@ class ProjectsController extends Controller
         return to_route('project.index');
     }
 
-    public function show(Project $project)
+    public function show(Project $project, Request $request)
     {
+        $request->session()->flash('projectId', $project->id);
+
         return view('project.show')->with('project', $project);
     }
 

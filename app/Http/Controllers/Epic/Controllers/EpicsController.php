@@ -14,10 +14,7 @@ class EpicsController extends Controller
 {
     public function index(Request $request)
     {
-        $projectId = $request->query('id');
-        if (empty($projectId)) {
-            $projectId = $request->session()->get('id');
-        }
+        $projectId = $request->session()->get('projectId');
 
         $epics = Epic::where('project_id', $projectId)->get();
 
