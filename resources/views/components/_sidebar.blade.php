@@ -10,7 +10,7 @@
         </li>
 
         <li class="py-1">
-            <a href="{{ route('project.show', $projectId) }}" class="{{ $active == 'backlog' ? 'px-3 border-s-4 border-indigo-500' : 'px-4 '}}">
+            <a href="{{ route('project.show', $projectId) }}" class="@if (Route::has('project')) 'px-3 border-s-4 border-indigo-500' @else 'px-4' @endif">
                 <i class=""></i>
                 backlog
             </a>
