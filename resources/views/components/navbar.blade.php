@@ -1,4 +1,4 @@
-<nav class="w-full mb-10 p-3 px-80 border-b">
+<nav class="w-full mb-10 p-3 px-80 shadow">
     <div class="flex justify-between items-center">
         <h1 class="text-2xl font-bold text-primary">
             T-Agile
