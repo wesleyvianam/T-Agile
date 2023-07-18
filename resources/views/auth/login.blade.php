@@ -13,7 +13,7 @@
                         <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 rounded-l-md">
                             <i class="bi bi-envelope-fill text-zinc-500"></i>
                         </span>
-                        <input type="text" id="website-admin" class="rounded-none rounded-r-lg bg-gray-50 text-gray-900 focus:ring-blue-500 focus:border-none block flex-1 min-w-0 w-full text-sm border-none p-2.5  dark:bg-gray-700" placeholder="Email">
+                        <input type="text" id="website-admin" class="rounded-none rounded-r-lg bg-gray-50 text-gray-900 focus:border-none block flex-1 min-w-0 w-full text-sm border-none p-2.5  dark:bg-gray-700" placeholder="Email">
                     </div>
 
                     <label for="website-admin" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
@@ -26,12 +26,12 @@
 
                     <div class="">
                         <div class="flex justify-between items-center">
-                            <a href="#">Esqueci minha senha</a>
+                            <a href="#" class="underline text-blue-600">Esqueci minha senha.</a>
 
                             <button class="mb-5 py-2 px-4 border rounded-md">Entrar</button>
                         </div>
 
-                        <p class="">Ainda nao possui conta? <a href="#" class="text-primary">registre-se</a></p>
+                        <p class="">Ainda nao possui conta? <a href="{{ route('register') }}" class="text-primary">registre-se</a></p>
                     </div>
                 </form>
             </div>
